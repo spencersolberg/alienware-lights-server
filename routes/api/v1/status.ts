@@ -1,7 +1,7 @@
 import { HandlerContext } from "$fresh/server.ts";
 
 export const handler = async (_req: Request, _ctx: HandlerContext): Promise<Response> => {
-  const command = new Deno.Command("sudo", { args: ["/opt/alienware-cli", "-lj"]});
+  const command = new Deno.Command("sudo", { args: ["alienware-cli", "-lj"]});
 
   const { code, stdout, stderr } = await command.output();
 

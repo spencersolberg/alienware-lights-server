@@ -10,7 +10,7 @@ export const handler = async (_req: Request, ctx: HandlerContext): Promise<Respo
     return new Response(`Invalid color ${color}`, { status: 400 });
   }
 
-  const command = new Deno.Command("sudo", { args: ["/opt/alienware-cli", "-H", `"${rgb.join(" ")}"`, "-L", `"${rgb.join(" ")}"`]});
+  const command = new Deno.Command("sudo", { args: ["alienware-cli", "-H", `"${rgb.join(" ")}"`, "-L", `"${rgb.join(" ")}"`]});
 
   const { code } = await command.output();
 

@@ -3,7 +3,7 @@ import { getColor } from "../../../utils/kv.ts";
 
 export const handler = async (_req: Request, _ctx: HandlerContext): Promise<Response> => {
   const color = await getColor();
-  const command = new Deno.Command("sudo", { args: ["/opt/alienware-cli", "-H", `"${color.join(" ")}"`, "-L", `"${color.join(" ")}"`]});
+  const command = new Deno.Command("sudo", { args: ["alienware-cli", "-H", `"${color.join(" ")}"`, "-L", `"${color.join(" ")}"`]});
 
   const { code, stdout, stderr } = await command.output();
 
